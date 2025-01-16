@@ -8,8 +8,8 @@ config = context.config
 
 fileConfig(config.config_file_name)
 
-from models.models import SQLModel
-from core.config import settings 
+from src.models.models import SQLModel
+from src.core.config import settings 
 
 target_metadata = SQLModel.metadata
 

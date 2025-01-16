@@ -1,9 +1,9 @@
 import secrets
 from pydantic import (
-    BaseSettings, 
     AnyUrl,
     HttpUrl
 )
+from pydantic_settings import BaseSettings
 from typing import List, Literal
 
 class Settings(BaseSettings):
