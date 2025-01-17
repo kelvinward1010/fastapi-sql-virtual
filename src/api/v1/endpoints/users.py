@@ -1,10 +1,10 @@
 from typing import List
 from fastapi import APIRouter, Depends, HTTPException
-from models.schemas import user
-from services import user_service
+from src.models.schemas import user
+from src.services import user_service
 from sqlmodel import select
 
-from api.dependencies import SessionDep
+from src.api.dependencies import SessionDep
 
 router = APIRouter()
 
