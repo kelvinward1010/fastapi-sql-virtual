@@ -16,16 +16,16 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
-  # web:
-  #   build: .
-  #   container_name: fastapi_sql_virtual
-  #   command: poetry run uvicorn src.main:app --host 0.0.0.0 --port 8000 
-  #   volumes: 
-  #     - .:/app 
-  #   ports: 
-  #     - "8000:8000" 
-  #   depends_on: 
-  #     - db
+  web:
+    build: .
+    container_name: fastapi_sql_virtual
+    command: /bin/sh -c "poetry run alembic upgrade head && poetry run uvicorn src.main:app --host 0.0.0.0 --port 8000"
+    volumes: 
+      - .:/src
+    ports: 
+      - "8000:8000" 
+    depends_on: 
+      - db
 
 volumes:
   postgres_data:
